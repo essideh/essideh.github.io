@@ -1342,3 +1342,62 @@ ninja-keys::part(ninja-input-wrapper) {
   background-color: var(--global-theme-color);
   color: var(--global-text-color);
 }
+.search-box {
+  position: relative;
+  margin-left: 1rem;
+  
+  input {
+      width: 200px;
+  }
+
+  #search-results {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 300px;
+      max-height: 500px;
+      overflow-y: auto;
+      background: var(--global-bg-color);
+      border: 1px solid var(--global-divider-color);
+      border-radius: 4px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      z-index: 1000;
+
+      li {
+          padding: 0;
+          border-bottom: 1px solid var(--global-divider-color);
+
+          &:last-child {
+              border-bottom: none;
+          }
+
+          a {
+              display: block;
+              padding: 10px;
+              color: var(--global-text-color);
+              text-decoration: none;
+
+              &:hover {
+                  background-color: var(--global-code-bg-color);
+              }
+
+              .search-title {
+                  font-weight: bold;
+                  margin-bottom: 5px;
+              }
+
+              .search-content {
+                  font-size: 0.9em;
+              }
+          }
+      }
+  }
+
+  #search-input:focus + #search-results,
+  #search-results:hover {
+      display: block;
+  }
+}
